@@ -149,6 +149,7 @@ with st.container():
     #st.metric("Jumlah Order", value=orders)
 
     st.write(daily_orders_df)
+    st.write(orders)
     # Plotting
     fig, ax = plt.subplots(figsize=(10, 5))
     ax.plot(
