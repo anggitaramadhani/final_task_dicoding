@@ -93,9 +93,10 @@ start_date, end_date = st.date_input(
     value=[min_date, max_date]
 )
 
+
 # Filter data berdasarkan rentang tanggal
-main_df = df[(df["order_purchase_timestamp"] >= (start_date - pd.DateOffset(days=1))) &
-             (df["order_purchase_timestamp"] <= (end_date + pd.DateOffset(days=1)))]
+main_df = df[(df["order_purchase_timestamp"] >= str((start_date) - timedelta(days=1))) &
+             (df["order_purchase_timestamp"] <= str((end_date) + timedelta(days=1)))]
 
 # Membuat DataFrame
 daily_orders_df = create_daily_orders_df(main_df)
@@ -144,25 +145,22 @@ st.write("")
 st.write("")
 
 st.subheader('Daily Orders')
-with st.container():
-    orders = daily_orders_df.order_count.sum()
-    st.metric("Jumlah Order", value=orders)
-    st.write(daily_orders_df)
-    st.write(orders)
-    # Plotting
-    fig, ax = plt.subplots(figsize=(10, 5))
-    ax.plot(
-        daily_orders_df["order_purchase_timestamp"],
-        daily_orders_df["order_count"], 
-        marker='o',
-        linewidth=2,
-        color="#D94B95"
-    )
-    plt.xticks(fontsize=10, rotation=45)
-    plt.yticks(fontsize=10)
+orders = daily_orders_df.order_count.sum()
+st.metric("Jumlah Order", value=orders)
+# Plotting
+fig, ax = plt.subplots(figsize=(10, 5))
+ax.plot(
+  daily_orders_df["order_purchase_timestamp"],
+  daily_orders_df["order_count"], 
+  marker='o',
+  linewidth=2,
+  color="#D94B95"
+)
+ax.tick_params(axis='y', labelsize=10)
+ax.tick_params(axis='x', labelsize=10, rotation=45)
 
-    # Menampilkan plot
-    st.pyplot(fig)
+# Menampilkan plot
+st.pyplot(fig)
 #with st.container():
  #   orders = daily_orders_df.order_count.sum()
   #  st.metric("Jumlah Order", value=orders)
