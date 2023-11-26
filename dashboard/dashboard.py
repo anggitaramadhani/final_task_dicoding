@@ -6,7 +6,7 @@ import streamlit as st
 from babel.numbers import format_currency
 from datetime import timedelta
 from babel import Locale
-#st.set_page_config(layout="wide")
+st.set_page_config(layout="wide")
 
 def create_count_order_product(df):
     # Membuat dataframe untuk menghitung jumlah orderan berdasarkan kategori product
