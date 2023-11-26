@@ -65,7 +65,7 @@ def create_rfm_df(df):
     return rfm_df
 
 # Load dataset
-df = pd.read_csv("C:/Users/ASUS/Pictures/submission/dashboard/main_data.csv")
+df = pd.read_csv("main_data.csv")
 
 
 st.markdown("<h1 style='text-align: center; font-size: 65px;'>Proyek Analisis Data \U0001F4CA</h1>", unsafe_allow_html=True)
