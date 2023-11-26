@@ -23,7 +23,7 @@ def create_daily_orders_df(df):
     })
    
     # Reset index
-    daily_orders_df = daily_orders_df.reset_index()
+    #daily_orders_df = daily_orders_df.reset_index()
     
     # Mengganti nama kolom
     daily_orders_df.rename(columns={
@@ -145,7 +145,7 @@ st.write("")
 
 st.subheader('Daily Orders')
 with st.container():
-    orders = main_df['order_id'].nunique()
+    orders = daily_orders_df.order_count.sum()
     st.metric("Jumlah Order", value=orders)
 
     st.write(daily_orders_df)
@@ -153,7 +153,7 @@ with st.container():
     # Plotting
     fig, ax = plt.subplots(figsize=(10, 5))
     ax.plot(
-        main_df["order_purchase_timestamp"],
+        daily_orders_df["order_purchase_timestamp"],
         daily_orders_df["order_count"], 
         marker='o',
         linewidth=2,
