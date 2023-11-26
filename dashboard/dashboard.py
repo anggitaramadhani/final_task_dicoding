@@ -169,6 +169,8 @@ st.write("")
 
 st.subheader("Order Customer by States")
 
+st.write("")
+
 # Membuat subplot
 fig, ax = plt.subplots(figsize=(10, 6))
 
@@ -194,6 +196,8 @@ st.write("")
 st.write("")
 
 st.subheader("Best Customer Based on RFM Parameters (customer_idx)")
+
+st.write("")
 
 col1, col2, col3 = st.columns(3)
 
