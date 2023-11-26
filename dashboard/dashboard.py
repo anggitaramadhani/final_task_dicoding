@@ -93,7 +93,6 @@ start_date, end_date = st.date_input(
     value=[min_date, max_date]
 )
 
-
 # Filter data berdasarkan rentang tanggal
 main_df = df[(df["order_purchase_timestamp"] >= str((start_date) - timedelta(days=1))) &
              (df["order_purchase_timestamp"] <= str((end_date) + timedelta(days=1)))]
@@ -146,8 +145,8 @@ st.write("")
 
 st.subheader('Daily Orders')
 with st.container():
-    coba = daily_orders_df.order_count.sum()
-    st.metric("Jumlah Order", value=coba)
+    total_orders = daily_orders_df.order_count.sum()
+    st.metric("Jumlah Order", value=total_orders)
 
     # Plotting
     fig, ax = plt.subplots(figsize=(10, 5))
