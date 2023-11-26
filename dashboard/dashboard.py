@@ -145,8 +145,8 @@ st.write("")
 
 st.subheader('Daily Orders')
 with st.container():
-    orders = daily_orders_df.order_count.sum()
-    #st.metric("Jumlah Order", value=orders)
+    orders = main_df['order_id'].nunique()
+    st.metric("Jumlah Order", value=orders)
 
     st.write(daily_orders_df)
     st.write(orders)
