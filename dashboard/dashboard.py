@@ -23,7 +23,7 @@ def create_daily_orders_df(df):
     })
    
     # Reset index
-    #daily_orders_df = daily_orders_df.reset_index()
+    # daily_orders_df = daily_orders_df.reset_index()
     
     # Mengganti nama kolom
     daily_orders_df.rename(columns={
@@ -77,7 +77,7 @@ st.write("")
 # convert tipe data ke datetime
 convert_datetime = ["order_purchase_timestamp", "order_estimated_delivery_date", "shipping_limit_date"]
 df.sort_values(by="order_purchase_timestamp", inplace=True)
-df.reset_index(inplace=True)
+# df.reset_index(inplace=True)
 
 for column in convert_datetime:
     df[column] = pd.to_datetime(df[column])
