@@ -93,15 +93,9 @@ start_date, end_date = st.date_input(
     value=[min_date, max_date]
 )
 
-start_date = pd.to_datetime(start_date)
-end_date = pd.to_datetime(end_date)
-
-start_date = start_date - pd.DateOffset(days=1)
-end_date = end_date + pd.DateOffset(days=1)
-
 # Filter data berdasarkan rentang tanggal
-main_df = df[(df["order_purchase_timestamp"] >= (start_date)) &
-             (df["order_purchase_timestamp"] <= (end_date))]
+main_df = df[(df["order_purchase_timestamp"] >= (start_date - pd.DateOffset(days=1)) &
+             (df["order_purchase_timestamp"] <= (end_date + pd.DateOffset(days=1)))]
 
 # Membuat DataFrame
 daily_orders_df = create_daily_orders_df(main_df)
