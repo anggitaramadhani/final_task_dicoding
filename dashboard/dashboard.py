@@ -146,7 +146,7 @@ st.write("")
 st.subheader('Daily Orders')
 
 with st.container():
-    orders = daily_orders_df.order_count.sum()
+    orders = daily_orders_df.order_count.count()
     st.metric("Jumlah Order", value=orders)
 
     # Plotting
