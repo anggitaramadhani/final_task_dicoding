@@ -6,6 +6,7 @@ import streamlit as st
 from babel.numbers import format_currency
 from datetime import timedelta
 from babel import Locale
+import numpy as np
 st.set_page_config(layout="wide")
 
 def create_count_order_product(df):
@@ -147,7 +148,7 @@ st.subheader('Daily Orders')
 
 with st.container():
     orders = daily_orders_df.order_count.sum()
-    #st.metric("Jumlah Order", value=orders)
+    st.metric("Jumlah Order", value=orders)
 
     # Plotting
     fig, ax = plt.subplots(figsize=(10, 5))
