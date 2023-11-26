@@ -94,7 +94,7 @@ start_date, end_date = st.date_input(
 )
 
 # Filter data berdasarkan rentang tanggal
-main_df = df[(df["order_purchase_timestamp"] >= str((start_date))) &
+main_df = df[(df["order_purchase_timestamp"] >= str((start_date) - timedelta(days=1))) &
              (df["order_purchase_timestamp"] <= str((end_date) + timedelta(days=1)))]
 
 # Membuat DataFrame
