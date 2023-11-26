@@ -144,26 +144,25 @@ st.write("")
 st.write("")
 
 st.subheader('Daily Orders')
+with st.container():
+    orders = daily_orders_df.order_count.sum()
+    #st.metric("Jumlah Order", value=orders)
 
-
-orders = daily_orders_df.order_count.sum()
-st.metric("Jumlah Order", value=orders)
-
- #st.write(daily_orders_df)
-# Plotting
-fig, ax = plt.subplots(figsize=(10, 5))
-ax.plot(
+    st.write(daily_orders_df)
+    # Plotting
+    fig, ax = plt.subplots(figsize=(10, 5))
+    ax.plot(
         daily_orders_df["order_purchase_timestamp"],
         daily_orders_df["order_count"], 
         marker='o',
         linewidth=2,
         color="#D94B95"
-)
-plt.xticks(fontsize=10, rotation=45)
-plt.yticks(fontsize=10)
+    )
+    plt.xticks(fontsize=10, rotation=45)
+    plt.yticks(fontsize=10)
 
     # Menampilkan plot
-st.pyplot(fig)
+    st.pyplot(fig)
 
 st.write("")
 st.write("")
