@@ -12,5 +12,5 @@ pip install pandas matplotlib seaborn streamlit babel
 streamlit run dashboard.py
 ```
 
-## Link Streamlit
+## Link Streamlit Cloud
 https://final-task-dicoding.streamlit.app/
