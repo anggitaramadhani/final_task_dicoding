@@ -154,7 +154,7 @@ with st.container():
     fig, ax = plt.subplots(figsize=(10, 5))
     ax.plot(
         daily_orders_df["order_purchase_timestamp"],
-        daily_orders_df["order_count"], 
+        main_df["order_count"], 
         marker='o',
         linewidth=2,
         color="#D94B95"
