@@ -147,7 +147,7 @@ st.write("")
 st.subheader('Daily Orders')
 with st.container():
     coba = daily_orders_df.order_count.sum()
-    st.metric("Jumlah Order", value=coba)
+    st.write("Jumlah Order", value=coba)
 
     # Plotting
     fig, ax = plt.subplots(figsize=(10, 5))
